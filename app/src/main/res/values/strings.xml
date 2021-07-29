@@ -1,3 +1,20 @@
 <resources>
     <string name="app_name">Cooking Converter</string>
+    <string name="conversion_text">Conversion</string>
+    <string name="convert_button">Convert</string>
+    <string name="fahrenheit_to">Fahrenheit</string>
+    <string name="centigrade_to">Centigrade</string>
+    <string name="fluid_ounces_to">Fluid Ounces</string>
+    <string name="liters_to">Liters</string>
+    <string name="ounces_to">Ounces</string>
+    <string name="grams_to">Grams</string>
+    <string name="centigrade_from">Centigrade</string>
+    <string name="fahrenheit_from">Fahrenheit</string>
+    <string name="liters_from">Liters</string>
+    <string name="fluid_ounces_from">Fluid Ounces</string>
+    <string name="grams_from">Grams</string>
+    <string name="ounces_from">Ounces</string>
+    <string name="unit_to_convert_to_text">Unit to convert to:</string>
+    <string name="unit_to_convert_from_text">Unit to convert from:</string>
+    <string name="measurement_to_convert_text">Measurement to convert</string>
 </resources>
