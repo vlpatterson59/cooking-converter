@@ -22,18 +22,7 @@
         android:paddingLeft="8dp"
         android:text="@string/unit_to_convert_from_text"
         app:layout_constraintTop_toBottomOf="@id/measurement_to_convert"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/convert_to" />
-
-    <TextView
-        android:id="@+id/convert_to"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:paddingLeft="8dp"
-        android:text="@string/unit_to_convert_to_text"
-        app:layout_constraintTop_toBottomOf="@id/measurement_to_convert"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/convert_from" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <RadioGroup
         android:id="@+id/from_options"
@@ -41,7 +30,6 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/to_options"
         app:layout_constraintTop_toBottomOf="@id/convert_from" >
         
         <RadioButton
@@ -82,53 +70,6 @@
 
     </RadioGroup>
 
-    <RadioGroup
-        android:id="@+id/to_options"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/convert_to"
-        app:layout_constraintStart_toEndOf="@id/from_options">
-
-        <RadioButton
-            android:id="@+id/to_grams"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/grams_to" />
-
-        <RadioButton
-            android:id="@+id/to_ounces"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/ounces_to" />
-
-        <RadioButton
-            android:id="@+id/to_liters"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/liters_to" />
-
-        <RadioButton
-            android:id="@+id/to_fluid_ounces"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/fluid_ounces_to" />
-
-        <RadioButton
-            android:id="@+id/to_temp_c"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/centigrade_to" />
-
-        <RadioButton
-            android:id="@+id/to_temp_f"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/fahrenheit_to" />
-
-    </RadioGroup>
-
     <Button
         android:id="@+id/convert_button"
         android:text="@string/convert_button"
@@ -143,6 +84,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/conversion_text"
+        tools:text="1 ounce = 28 grams"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/convert_button" />
 
