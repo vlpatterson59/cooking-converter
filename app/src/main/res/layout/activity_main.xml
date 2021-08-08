@@ -1,91 +1,135 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:layout_height="match_parent">
 
-    <EditText
-        android:id="@+id/measurement_to_convert"
-        android:layout_width="220dp"
-        android:layout_height="wrap_content"
-        android:hint="@string/measurement_to_convert_text"
-        android:inputType="numberDecimal"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/convert_from"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:paddingLeft="8dp"
-        android:text="@string/unit_to_convert_from_text"
-        app:layout_constraintTop_toBottomOf="@id/measurement_to_convert"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <RadioGroup
-        android:id="@+id/from_options"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/convert_from" >
-        
-        <RadioButton
-            android:id="@+id/from_ounces"
+        <ImageView
+            android:id="@+id/icon_enter_qty"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/ounces_from" />
+            android:importantForAccessibility="no"
+            app:srcCompat="@drawable/ic_enter_qty"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/measurement_to_convert"
+            app:layout_constraintBottom_toBottomOf="@id/measurement_to_convert"/>
 
-        <RadioButton
-            android:id="@+id/from_grams"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/measurement_to_convert"
+            android:layout_width="220dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/measurement_to_convert_text"
+            android:layout_marginStart="16dp"
+            app:layout_constraintStart_toEndOf="@id/icon_enter_qty"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/measurement_to_convert_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+            />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <ImageView
+            android:id="@+id/icon_convert_from_to"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/grams_from" />
+            android:importantForAccessibility="no"
+            app:srcCompat="@drawable/ic_convert_from_to"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/convert_from"
+            app:layout_constraintBottom_toBottomOf="@id/convert_from" />
 
-        <RadioButton
-            android:id="@+id/from_fluid_ounces"
+        <TextView
+            android:id="@+id/convert_from"
+            style="@style/Widget.CookingConverter.TextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:paddingLeft="8dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/unit_to_convert_from_text"
+            app:layout_constraintTop_toBottomOf="@id/measurement_to_convert"
+            app:layout_constraintStart_toStartOf="@id/measurement_to_convert" />
+
+        <RadioGroup
+            android:id="@+id/from_options"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintStart_toStartOf="@id/convert_from"
+            app:layout_constraintTop_toBottomOf="@id/convert_from" >
+
+            <RadioButton
+                android:id="@+id/from_ounces"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/ounces_from" />
+
+            <RadioButton
+                android:id="@+id/from_grams"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/grams_from" />
+
+            <RadioButton
+                android:id="@+id/from_fluid_ounces"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/fluid_ounces_from" />
+
+            <RadioButton
+                android:id="@+id/from_liters"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/liters_from" />
+
+            <RadioButton
+                android:id="@+id/from_temp_f"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/fahrenheit_from" />
+
+            <RadioButton
+                android:id="@+id/from_temp_c"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/centigrade_from" />
+
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/convert_button"
+            android:text="@string/convert_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@id/from_options"
+            app:layout_constraintStart_toStartOf="@id/from_options"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/convert_result"
+            style="@style/Widget.CookingConverter.TextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/fluid_ounces_from" />
+            android:text="@string/conversion_text"
+            android:layout_marginTop="8dp"
+            tools:text="1 ounce = 28 grams"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/convert_button" />
 
-        <RadioButton
-            android:id="@+id/from_liters"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/liters_from" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <RadioButton
-            android:id="@+id/from_temp_f"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/fahrenheit_from" />
-
-        <RadioButton
-            android:id="@+id/from_temp_c"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/centigrade_from" />
-
-    </RadioGroup>
-
-    <Button
-        android:id="@+id/convert_button"
-        android:text="@string/convert_button"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/from_options"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <TextView
-        android:id="@+id/convert_result"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/conversion_text"
-        tools:text="1 ounce = 28 grams"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/convert_button" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

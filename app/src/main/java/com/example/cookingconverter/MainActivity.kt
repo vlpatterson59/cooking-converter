@@ -1,7 +1,11 @@
 package com.example.cookingconverter
 
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.KeyEvent
+import android.view.View
+import android.view.inputmethod.InputMethodManager
 import com.example.cookingconverter.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -15,10 +19,12 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.convertButton.setOnClickListener { convertUnit() }
+
+        binding.convertFrom.setOnKeyListener { view, keyCode, _ -> handleKeyEvent(view, keyCode) }
     }
 
     private fun convertUnit() {
-        val stringInTextField = binding.measurementToConvert.text.toString()
+        val stringInTextField = binding.measurementToConvertEditText.text.toString()
         val convert = stringInTextField.toDoubleOrNull()
         if (convert == null) {
             binding.convertResult.text = ""
@@ -54,5 +60,15 @@ class MainActivity : AppCompatActivity() {
                 getString(R.string.conversion_text, convert.toString(), "°C", (convert * 9 / 5 + 32).toString(), "°F")
             }
         }
+    }
+
+    private fun handleKeyEvent(view: View, keyCode: Int): Boolean {
+        if (keyCode == KeyEvent.KEYCODE_ENTER) {
+            // Hide the keyboard
+            val inputMethodManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
+            return true
+        }
+        return false
     }
 }
